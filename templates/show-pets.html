@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}ADOPT ME!{% endblock %}
+
+{% block content %}
+    <h1>Pets</h1>
+    {% for pet in pets %}
+        <div class="mr-4 mb-4 d-inline-block">
+            <div><img src="{{ pet.photo_url }}"></div>
+            <a href="/{{ pet.id }}">{{ pet.name }}
+            {% if pet.available %}
+                <b> is available!</b>
+            {% else %}
+                <b> is not available!</b>
+            {% endif %}
+            </a>
+        </div>
+    {% endfor %}
+    <div class="mt-3"><a href="/add" class="btn btn-primary btn-sm">Add a pet!</a></div>
+{% endblock %}
